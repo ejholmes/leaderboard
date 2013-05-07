@@ -42,7 +42,7 @@ module Leaderboard
   # Sprockets::Environment for serving assets.
   def self.sprockets
     @sprockets ||= begin
-      root = File.join(BASE, 'assets')
+      root = BASE
 
       environment = Sprockets::Environment.new.tap do |env|
         %w[stylesheets javascripts images].each do |path|

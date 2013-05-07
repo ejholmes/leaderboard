@@ -10,8 +10,12 @@ gem 'activesupport'
 gem 'thin'
 
 # Assets
+gem 'sass'
+gem 'coffee-script'
 gem 'sprockets'
 gem 'sprockets-sass'
+gem 'compass'
+gem 'bootstrap-sass'
 
 group :development do
   gem 'guard-rspec'
