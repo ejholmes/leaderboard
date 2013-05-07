@@ -3,8 +3,7 @@ Contributor = @Leaderboard.Models.Contributor
 class @Leaderboard.Collections.Contributors extends Backbone.Collection
   model: Contributor
 
-  comparator: (contributor) ->
-    contributor.get('contributions')
+  comparator: 'contributions'
 
   fetch: ->
     @trigger('fetch:start')

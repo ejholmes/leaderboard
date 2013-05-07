@@ -5,7 +5,10 @@ class @Leaderboard.Views.Contributors extends Backbone.View
     color: '#c9c9c3'
 
   initialize: ->
+    _.bindAll this, 'addOne'
+
     @listenTo @collection, 'add',            @addOne
+    @listenTo @collection, 'sort',           @render
     @listenTo @collection, 'fetch:start',    @addSpinner
     @listenTo @collection, 'fetch:complete', @removeSpinner
 
