@@ -1,1 +1,6 @@
+.page-header
+  %p.lead.align-center
+    These people are kicking ass at
+    %a{:href => "https://github.com/#{@owner}"}= @owner
+
 %ul.contributors{'data-stream' => "/#{@owner}/stream"}

@@ -57,7 +57,7 @@ module Leaderboard
             aggregate[login][:author]         = contributor.author
             aggregate[login][:contributions] += sum
           end
-          out << "event: update\ndata: #{aggregate.values.sort_by { |a| a[:sum] }.to_json}\n\n"
+          out << "event: update\ndata: #{aggregate.values.to_json}\n\n"
         end
         out << "event: complete\ndata: \n\n"
       end

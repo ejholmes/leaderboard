@@ -1,6 +1,10 @@
-%ul.organizations.row
+.page-header
+  %h1 Organizations
+  %p.lead
+    Select an organization from below.
+
+%ul.organizations.row.animated.fadeIn
   - organizations.each do |org|
     %li.span3
-      %a{:href => "/#{org.login}"}
+      %a{:href => "/#{org.login}", :title => org.login, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom'}
         %img.avatar{:src => org.avatar_url}
-        %h4= org.login
