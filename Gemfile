@@ -8,6 +8,7 @@ gem 'octokit'
 gem 'json'
 gem 'activesupport'
 gem 'thin'
+gem 'unicorn'
 
 # Assets
 gem 'sass'
@@ -22,6 +23,7 @@ group :development do
   gem 'guard-rspec'
   gem 'shotgun'
   gem 'dotenv'
+  gem 'foreman'
 end
 
 group :test do
