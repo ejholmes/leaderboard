@@ -8,9 +8,20 @@ class @Leaderboard.Views.Contributors extends Backbone.View
     _.bindAll this, 'addOne'
 
     @listenTo @collection, 'add',            @addOne
-    @listenTo @collection, 'sort',           @render
+    @listenTo @collection, 'sort',           @sort
     @listenTo @collection, 'fetch:start',    @addSpinner
     @listenTo @collection, 'fetch:complete', @removeSpinner
+
+  sort: ->
+    $last = null
+    for model in @collection.models
+      $el = model.view.$el
+      $el.removeClass('animated')
+      if $last
+        $last.after($el)
+      else
+        $el.prependTo(@$el)
+      $last = $el
 
   addOne: (model) ->
     view = new Leaderboard.Views.Contributor(collection: @collection, model: model)
