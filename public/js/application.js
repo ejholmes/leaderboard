@@ -1,7 +1,7 @@
 // Some general UI pack related JS
 
 $(function () {
-    var source = new EventSource('/remind101/stream');
+    var source = new EventSource('/heroku/stream');
 
     source.addEventListener('update', function (e) {
         var data = JSON.parse(e.data)

@@ -26,7 +26,7 @@ class App < Sinatra::Base
     def api; github_user.api end
 
     def repositores
-      api.organization_repositories(params[:owner])
+      api.organization_repositories(params[:owner], type: 'all')
     end
 
     def contributors(*args)
