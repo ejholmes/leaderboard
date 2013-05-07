@@ -7,21 +7,25 @@ class @Leaderboard.Views.Contributors extends Backbone.View
   initialize: ->
     _.bindAll this, 'addOne'
 
+    @sort = _.throttle @sort, 2000
+
     @listenTo @collection, 'add',            @addOne
     @listenTo @collection, 'sort',           @sort
     @listenTo @collection, 'fetch:start',    @addSpinner
     @listenTo @collection, 'fetch:complete', @removeSpinner
 
   sort: ->
-    $last = null
-    for model in @collection.models
-      $el = model.view.$el
-      $el.removeClass('animated')
-      if $last
-        $last.after($el)
-      else
-        $el.prependTo(@$el)
-      $last = $el
+    _.delay =>
+      $last = null
+      for model in @collection.models
+        $el = model.view.$el
+        $el.removeClass('animated')
+        if $last
+          $last.after($el)
+        else
+          $el.prependTo(@$el)
+        $last = $el
+    , 2000
 
   addOne: (model) ->
     view = new Leaderboard.Views.Contributor(collection: @collection, model: model)
