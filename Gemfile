@@ -9,6 +9,10 @@ gem 'json'
 gem 'activesupport'
 gem 'thin'
 
+# Assets
+gem 'sprockets'
+gem 'sprockets-sass'
+
 group :development do
   gem 'guard-rspec'
   gem 'shotgun'

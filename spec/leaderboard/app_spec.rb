@@ -5,9 +5,11 @@ describe Leaderboard.app do
   include Warden::Test::Helpers
 
   subject(:app) { Leaderboard.app }
+  let(:api)     { double(Octokit::Client) }
+  let(:user)    { double('User', api: api) }
 
   before do
-    login_as "A GitHub User"
+    login_as user
   end
 
   after do
@@ -16,6 +18,7 @@ describe Leaderboard.app do
 
   describe 'GET /' do
     it 'allows the user to select an organization' do
+      api.stub :organizations => []
       get '/'
       expect(last_response).to be_ok
     end
