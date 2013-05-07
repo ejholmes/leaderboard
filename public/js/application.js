@@ -1,24 +1,28 @@
 // Some general UI pack related JS
 
 $(function () {
-    var source = new EventSource('/heroku/stream');
+    $('ul.contributors').each(function() {
+        var $this  = $(this),
+            url    = $this.data('stream'),
+            source = new EventSource(url)
 
-    source.addEventListener('update', function (e) {
-        var data = JSON.parse(e.data)
-        var $leaders = $('ul.leaders').html('')
-        $.each(data, function (index, contributor) {
-            console.log(contributor)
-            var $contributor = $('<li />')
-            $contributor.html("<h1 class='pull-right'>" + contributor.contributions + " Contributions</h1>" +
-                "<img class='avatar' src='" + contributor.author.avatar_url + "' />" +
-                "<h3><a href='#'>@" + contributor.author.login + "</a></h3>")
-            $leaders.append($contributor)
+        source.addEventListener('update', function (e) {
+            var data = JSON.parse(e.data)
+            $this.html('')
+            $.each(data, function (index, contributor) {
+                console.log(contributor)
+                var $contributor = $('<li />')
+                $contributor.html("<h1 class='pull-right'>" + contributor.contributions + " Contributions</h1>" +
+                    "<img class='avatar' src='" + contributor.author.avatar_url + "' />" +
+                    "<h3><a href='#'>@" + contributor.author.login + "</a></h3>")
+                $this.append($contributor)
+            });
         });
-    });
 
-    source.addEventListener('complete', function (e) {
-        source.close()
-    });
+        source.addEventListener('complete', function (e) {
+            source.close()
+        });
+    })
 });
 
 $(function () {

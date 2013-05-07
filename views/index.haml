@@ -1,0 +1,6 @@
+%ul.organizations.row
+  - organizations.each do |org|
+    %li.span3
+      %a{:href => "/#{org.login}"}
+        %img.avatar{:src => org.avatar_url}
+        %h4= org.login

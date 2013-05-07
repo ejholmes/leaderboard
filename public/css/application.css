@@ -1,7 +1,14 @@
-ul.leaders {
-  margin: 0;
-  padding: 0;
+ul.organizations,
+ul.contributors {
   list-style: none;
+}
+
+ul.organizations li {
+  text-align: center;
+}
+
+img.avatar {
+  border-radius: 5px;
 }
 
 ul.leaders li {

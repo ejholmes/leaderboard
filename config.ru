@@ -1,3 +1,3 @@
-require File.expand_path('../app', __FILE__)
+require File.expand_path('../config/environment', __FILE__)
 
-run App
+run Leaderboard.app
