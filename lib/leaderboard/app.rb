@@ -53,6 +53,7 @@ module Leaderboard
             login = contributor.author.login
             week  = contributor.weeks.first
             sum   = week.a + week.d + week.c
+            aggregate[login][:login]          = login
             aggregate[login][:author]         = contributor.author
             aggregate[login][:contributions] += sum
           end

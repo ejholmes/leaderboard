@@ -16,6 +16,7 @@ gem 'sprockets'
 gem 'sprockets-sass'
 gem 'compass'
 gem 'bootstrap-sass'
+gem 'handlebars_assets'
 
 group :development do
   gem 'guard-rspec'

@@ -1,3 +1,3 @@
 #= require bootstrap
-#= require lodash
-#= require bootstrap
+#= require handlebars.runtime
+#= require app

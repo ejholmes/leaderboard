@@ -50,6 +50,8 @@ module Leaderboard
         end
       end
 
+      environment.append_path HandlebarsAssets.path
+
       # Add any gems with (vendor|app|.)/assets/javascripts to paths
       # also add similar directories from project root (like in rails)
       try_paths = [
